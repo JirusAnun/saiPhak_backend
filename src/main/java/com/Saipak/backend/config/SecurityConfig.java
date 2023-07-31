@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .cors(config -> {
                     CorsConfiguration cors = new CorsConfiguration();
                     cors.setAllowCredentials(true);
-                    cors.setAllowedOriginPatterns(Collections.singletonList("http://*"));
+                    cors.setAllowedOriginPatterns(Collections.singletonList("https://*"));
                     cors.addAllowedHeader("*");
                     cors.addAllowedMethod("GET");
                     cors.addAllowedMethod("POST");
@@ -49,7 +49,7 @@ public class SecurityConfig {
                     config.configurationSource(source);
                 })
                 .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/user/login","/user/register").anonymous()
+                                .requestMatchers("/user/login","/user/register").anonymous()
 //                                .requestMatchers("/user/register").hasAuthority("Roles(name=ADMIN)")
                                 .anyRequest().authenticated()
                 )
